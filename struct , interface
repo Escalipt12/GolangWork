@@ -1,0 +1,60 @@
+package main
+
+import (
+	"fmt"
+)
+
+type CODE10 interface {
+	Code() int
+	Name() string
+	Work() bool
+	Linux() int
+}
+
+type Fedya struct {
+	Linux1 int
+	Name1  string
+	work1  bool
+	code1  int
+}
+type FUCCELLO struct {
+	code2  int
+	Name2  string
+	work2  bool
+	Linux2 int
+}
+
+func (a Fedya) Linux() int {
+	return a.Linux1
+}
+func (b Fedya) Name() string {
+	return b.Name1
+}
+func (c Fedya) Work() bool {
+	return c.work1
+}
+func (p Fedya) Code() int {
+	return p.code1
+}
+func (d FUCCELLO) Work() bool {
+	return d.work2
+}
+func (g FUCCELLO) Code() int {
+	return g.code2
+}
+func (e FUCCELLO) Name() string {
+	return e.Name2
+}
+func (i FUCCELLO) Linux() int {
+	return i.Linux2
+}
+
+func main() {
+	name1 := Fedya{Linux1: 2, Name1: "Федя", work1: false, code1: 10}
+	name2 := FUCCELLO{code2: 11, Name2: "FUCCELLO", work2: true, Linux2: 1}
+	j := []CODE10{name1, name2}
+	for k, n := range j {
+
+		fmt.Println(k, "Линукс? -> ", n.Linux(), "Код? -> ", n.Code(), "Имя: ", n.Name(), "Work? -> ", n.Work())
+	}
+}
