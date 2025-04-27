@@ -1,0 +1,36 @@
+package main
+
+import (
+	"fmt"
+)
+
+func auto() (string, string, int) {
+	var login, password string
+	var age int
+	fmt.Println("Введите логин: ")
+	fmt.Scanln(&login)
+	fmt.Println("Введите пароль: ")
+	fmt.Scanln(&password)
+	fmt.Println("Введите свой возвраст:")
+	fmt.Scanln(&age)
+	return login, password, age
+}
+
+func checkAGE(age int) string {
+	switch {
+	case age < 14:
+		return fmt.Sprintln("Вы еще не получили паспорт: ", age)
+	case age < 18:
+		return fmt.Sprintln("Вы Несовершеннолетний ", age)
+	case age < 100:
+		return fmt.Sprintln("Нормис", age)
+	default:
+		return fmt.Sprintln("Введите корректный возвраст", age)
+	}
+
+}
+func main() {
+	login, password, age := auto()
+	result := checkAGE(age)
+	fmt.Println(login, password, age, result)
+}
