@@ -7,12 +7,24 @@ import (
 func auto() (string, string, int) {
 	var login, password string
 	var age int
-	fmt.Println("Введите логин: ")
-	fmt.Scanln(&login)
-	fmt.Println("Введите пароль: ")
-	fmt.Scanln(&password)
+	for {
+		fmt.Println("Введите логин: ")
+		fmt.Scanln(&login)
+		if len(login) <= 10 {
+			break
+		}
+	}
+	for {
+		fmt.Println("Введите пароль: ")
+		fmt.Scanln(&password)
+		if len(password) <= 16 {
+			break
+		}
+
+	}
 	fmt.Println("Введите свой возвраст:")
 	fmt.Scanln(&age)
+
 	return login, password, age
 }
 
@@ -32,5 +44,6 @@ func checkAGE(age int) string {
 func main() {
 	login, password, age := auto()
 	result := checkAGE(age)
+
 	fmt.Println(login, password, age, result)
 }
