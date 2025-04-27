@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+)
+
+func print_maping(ares map[string]int) {
+	for name, ages := range ares {
+		fmt.Println(name, ":", ages)
+	}
+}
+func main() {
+	ages := map[string]int{
+		"Fedya":    30,
+		"FUCCELLO": 45,
+	}
+
+	alonny := make(map[string]int)
+	alonny["zfi"] = 5
+	alonny["rte"] = 2
+	alonny["mpe"] = 3
+	alonny["oka"] = 11
+	for k, n := range alonny {
+		fmt.Println(k, ":", n)
+	}
+
+	print_maping(ages)
+}
