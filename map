@@ -20,8 +20,14 @@ func main() {
 	alonny["rte"] = 2
 	alonny["mpe"] = 3
 	alonny["oka"] = 11
+	alonny["xa"] = 22
+	alonny["dd"] = 33
 	for k, n := range alonny {
-		fmt.Println(k, ":", n)
+		if len(k) <= 2 {
+			fmt.Println("Короткое имя - ", k, "Ваш пароль - ", n)
+		} else {
+			fmt.Println("Нормальое имя - ", k, "Ваш пароль - ", n)
+		}
 	}
 
 	print_maping(ages)
