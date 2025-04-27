@@ -24,11 +24,18 @@ func main() {
 	alonny["dd"] = 33
 	for k, n := range alonny {
 		if len(k) <= 2 {
-			fmt.Println("Короткое имя - ", k, "Ваш пароль - ", n)
+			fmt.Println("Короткий ключ - ", k, n)
 		} else {
-			fmt.Println("Нормальое имя - ", k, "Ваш пароль - ", n)
+			fmt.Println("Нормальный ключ- ", k, n)
+		}
+
+		if n <= 11 {
+			fmt.Println("Короткий ключ  - ", n, " для ключа - ", k)
+		} else {
+			fmt.Println("Нормальный ключ  - ", n, " для ключа - ", k)
 		}
 	}
 
 	print_maping(ages)
 }
+
