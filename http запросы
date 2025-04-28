@@ -1,0 +1,22 @@
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func main() {
+	resp, err := http.Get("https://vimeworld.com/") // get - получение , post - отправка
+	if err != nil {                                 // проверка на ошибку
+		return // проверка на ошибку
+	}
+
+	defer resp.Body.Close() // defer - выполняет в последнюю очередь
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil { // проверка на ошибку
+		return // проверка на ошибку
+	}
+	fmt.Println(string(body))
+
+}
