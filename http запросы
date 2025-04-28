@@ -1,14 +1,19 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 )
 
+type online struct {
+	total int `json:"total"`
+}
+
 func main() {
-	resp, err := http.Get("https://vimeworld.com/") // get - получение , post - отправка
-	if err != nil {                                 // проверка на ошибку
+	resp, err := http.Get("https://api.vimeworld.com/online") // get - получение , post - отправка
+	if err != nil {                                           // проверка на ошибку
 		return // проверка на ошибку
 	}
 
@@ -17,6 +22,10 @@ func main() {
 	if err != nil { // проверка на ошибку
 		return // проверка на ошибку
 	}
-	fmt.Println(string(body))
+	var data online
+	gg := json.Unmarshal(body, &data)
+	fmt.Println(gg)
+	fmt.Println(data.total)
+	//  g := strings.Index(string(body), "Онлайн") // проверка наличия Contains - содержит ли в тексте , index - позиция в тексте
+	// fmt.Println(body[g : g+len("Онлайн")]) //
 
-}
